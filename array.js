@@ -14,7 +14,7 @@ var div17 = $("#hour-17");
 
 var item = [{
     // div9: $("#hour-9"),
-    stateCurrent: "",
+    stateCurrent: "what",
     states: [".past", ".present", ".future"],
 }, {
     // div10: $("#hour-10"),
@@ -35,11 +35,15 @@ var hours = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 // var currentTime = item[index].stateCurrent;
 // var assignCurrentTime = item[index].states;
 
-if (hours[1] === theTime.format("H")) {
+if (hours[2] === theTime.format("H")) {
     console.log("hello");
-    div9.target = allStates[3];
+    // div9.content(allStates[0]);
 }
-console.log(div9);
+console.log(item[0].states[0]);
+
+// Why is [i] not defined?
+// console.log(item[i].states[i]);
+
 
 
 
