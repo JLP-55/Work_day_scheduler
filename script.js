@@ -4,21 +4,33 @@
 
 $(function () {
 
-	var save = $(".saveBtn");
+	// var save = document.querySelectorAll("button");
+    var save = $(".saveBtn");
 	var todaysDate = dayjs();
 	var theTime = parseInt(dayjs().format("H"));
-    var assignCurrentTime = document.getElementById("time-block");
+    // var assignCurrentTime = document.getElementById("time-block");
+    var assignCurrentTime = $(".time-block");
 
-	var textArea09 = document.getElementById("hour-09");
-	var textArea10 = document.getElementById("hour-10");
-	var textArea11 = document.getElementById("hour-11");
-	var textArea12 = document.getElementById("hour-12");
-	var textArea13 = document.getElementById("hour-13");
-	var textArea14 = document.getElementById("hour-14");
-	var textArea15 = document.getElementById("hour-15");
-	var textArea16 = document.getElementById("hour-16");
-	var textArea17 = document.getElementById("hour-17");
-	
+	var textArea09 = $("#hour-09");
+	var textArea10 = $("#hour-10");
+	var textArea11 = $("#hour-11");
+	var textArea12 = $("#hour-12");
+	var textArea13 = $("#hour-13");
+	var textArea14 = $("#hour-14");
+	var textArea15 = $("#hour-15");
+	var textArea16 = $("#hour-16");
+	var textArea17 = $("#hour-17");
+
+    var giveTime09 = $("#9");
+    var giveTime10 = $("#10");
+    var giveTime11 = $("#11");
+    var giveTime12 = $("#12");
+    var giveTime13 = $("#13");
+    var giveTime14 = $("#14");
+    var giveTime15 = $("#15");
+    var giveTime16 = $("#16");
+    var giveTime17 = $("#17");
+
 	// TODO: Add a listener for click events on the save button. This code should
 	// use the id in the containing time-block as a key to save the user input in
 	// local storage. HINT: What does `this` reference in the click listener
@@ -26,7 +38,7 @@ $(function () {
 	// time-block containing the button that was clicked? How might the id be
 	// useful when saving the description in local storage?
 	//
-	
+
 	save.on("click", function () {
 
         userInput09 = textArea09.value;
@@ -57,23 +69,10 @@ $(function () {
 	// past, present, and future classes? How can Day.js be used to get the
 	// current hour in 24-hour time?
 
-    // for (var i = 0; i < assignCurrentTime.length; i++) {
-    //     if (assignCurrentTime[i].dataset.time == theTime) {
-    //         assignCurrentTime[i].classList.remove("past");
-    //         assignCurrentTime[i].classList.remove("future");
-    //         assignCurrentTime[i].classList.add("present");
-    //     };
-    //     if (assignCurrentTime[i].dataset.time > theTime) {
-    //         assignCurrentTime[i].classList.remove("past");
-    //         assignCurrentTime[i].classList.remove("present");
-    //         assignCurrentTime[i].classList.add("future");
-    //     };
-    //     if (assignCurrentTime[i].dataset.time < theTime) {
-    //         assignCurrentTime[i].classList.remove("present");
-    //         assignCurrentTime[i].classList.remove("future");
-    //         assignCurrentTime[i].classList.add("past");
-    //     }
-    // };
+
+    if (giveTime09 == theTime) {
+        console.log(theTime);
+    };
 		
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
@@ -105,7 +104,7 @@ $(function () {
     init();
 
 	// TODO: Add code to display the current date in the header of the page.
-
+    
 	$("#currentDay").text(todaysDate.format("[Today is] D MMM, YYYY"));
 
 });
