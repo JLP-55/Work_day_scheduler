@@ -1,7 +1,3 @@
-var theTime = dayjs();
-theTime.format("H");
-console.log(theTime.format("H"));
-
 var div9 = $("#hour-9");
 var div10 = $("#hour-10");
 var div11 = $("#hour-11");
@@ -14,7 +10,7 @@ var div17 = $("#hour-17");
 
 var item = [{
     // div9: $("#hour-9"),
-    stateCurrent: "what",
+    stateCurrent: "",
     states: [".past", ".present", ".future"],
 }, {
     // div10: $("#hour-10"),
@@ -30,27 +26,19 @@ var item = [{
     states: [".past", ".present", ".future"],
 },];
 
-var allStates = [".past", ".present", ".future"];
-var hours = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+
+item.forEach(assignValues);
+
+function assignValues() {
+    var allStates = [".past", ".present", ".future"];
+
+}
+
 // var currentTime = item[index].stateCurrent;
 // var assignCurrentTime = item[index].states;
 
-if (hours[2] === theTime.format("H")) {
-    console.log("hello");
-    // div9.content(allStates[0]);
-}
-console.log(item[0].states[0]);
-
 // Why is [i] not defined?
 // console.log(item[i].states[i]);
-
-
-
-
-
-
-
-
 
 // var item2 = {
 //     div9: $("#hour-9"),
