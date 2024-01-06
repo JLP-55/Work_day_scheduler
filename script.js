@@ -29,17 +29,44 @@ $(function () {
     var giveTime16 = $("#16");
     var giveTime17 = $("#17");
 
-    pastPresentFuture = {
-        num9: 9,
-        num10: 10,
-        num11: 11,
-        num12: 12,
-        num13: 13,
-        num14: 14,
-        num15: 15,
-        num16: 16,
-        num17: 17,
-    };
+    var timeBlockHours = [
+        giveTime09 = 9,
+        giveTime10,
+        giveTime11,
+        giveTime12,
+        giveTime13,
+        giveTime14,
+        giveTime15,
+        giveTime16,
+        giveTime17,
+    ];
+
+    
+    // var pastPresentFuture = {
+    //     num9: 9,
+    //     num10: 10,
+    //     num11: 11,
+    //     num12: 12,
+    //     num13: 13,
+    //     num14: 14,
+    //     num15: 15,
+    //     num16: 16,
+    //     num17: 17,
+    // };
+
+    // console.log(pastPresentFuture);
+
+    // var timeSections = {
+    //     giveTime09: $("#9"),
+    //     giveTime10: $("#10"),
+    //     giveTime11: $("#11"),
+    //     giveTime12: $("#12"),
+    //     giveTime13: $("#13"),
+    //     giveTime14: $("#14"),
+    //     giveTime15: $("#15"),
+    //     giveTime16: $("#16"),
+    //     giveTime17: $("#17"),
+    // };
 
 	// TODO: Add a listener for click events on the save button. This code should
 	// use the id in the containing time-block as a key to save the user input in
@@ -79,12 +106,22 @@ $(function () {
 	// past, present, and future classes? How can Day.js be used to get the
 	// current hour in 24-hour time?
 
-
-    if (pastPresentFuture[1] < theTime) {
+    if (theTime < 9) {
         assignCurrentTime.attr("class", "future");
     };
 
-    // giveTime09.attr("class", "past");
+    for (var i = 0; i < timeBlockHours.length; i++) {
+        // const element = timeBlockHours[i];
+        if (timeBlockHours[i] > theTime) {
+            assignCurrentTime.attr("class", "past");
+        };
+        if (timeBlockHours[i] == theTime) {
+            assignCurrentTime.attr("class", "present");
+        };
+        if (timeBlockHours[i] < theTime) {
+            assignCurrentTime.attr("class", "future");
+        };
+    };
 
     // giveTime09.attr("class", "future");
     // giveTime10.attr("class", "future");
@@ -95,7 +132,6 @@ $(function () {
     // giveTime15.attr("class", "future");
     // giveTime16.attr("class", "future");
     // giveTime17.attr("class", "future");
-
 		
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
