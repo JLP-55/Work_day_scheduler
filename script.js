@@ -51,15 +51,15 @@ $(function () {
 
 	save.on("click", function () {
 
-        userInput09 = textArea09.value;
-        userInput10 = textArea10.value;
-        userInput11 = textArea11.value;
-        userInput12 = textArea12.value;
-        userInput13 = textArea13.value;
-        userInput14 = textArea14.value;
-        userInput15 = textArea15.value;
-        userInput16 = textArea16.value;
-        userInput17 = textArea17.value;
+        userInput09 = textArea09.val();
+        userInput10 = textArea10.val();
+        userInput11 = textArea11.val();
+        userInput12 = textArea12.val();
+        userInput13 = textArea13.val();
+        userInput14 = textArea14.val();
+        userInput15 = textArea15.val();
+        userInput16 = textArea16.val();
+        userInput17 = textArea17.val();
 
         localStorage.setItem("9am", userInput09);
         localStorage.setItem("10am", userInput10);
