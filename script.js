@@ -4,11 +4,9 @@
 
 $(function () {
 
-	// var save = document.querySelectorAll("button");
     var save = $(".saveBtn");
-	var todaysDate = dayjs();
-	var theTime = parseInt(dayjs().format("H"));
-    // var assignCurrentTime = document.getElementById("time-block");
+	var todaysDate = dayjs().format("[Today is] D MMM, YYYY");
+	var theTime = dayjs().format("H");
     var assignCurrentTime = $(".time-block");
 
 	var textArea09 = $("#hour-09");
@@ -30,6 +28,18 @@ $(function () {
     var giveTime15 = $("#15");
     var giveTime16 = $("#16");
     var giveTime17 = $("#17");
+
+    pastPresentFuture = {
+        num9: 9,
+        num10: 10,
+        num11: 11,
+        num12: 12,
+        num13: 13,
+        num14: 14,
+        num15: 15,
+        num16: 16,
+        num17: 17,
+    };
 
 	// TODO: Add a listener for click events on the save button. This code should
 	// use the id in the containing time-block as a key to save the user input in
@@ -70,9 +80,22 @@ $(function () {
 	// current hour in 24-hour time?
 
 
-    if (giveTime09 == theTime) {
-        console.log(theTime);
+    if (pastPresentFuture[1] < theTime) {
+        assignCurrentTime.attr("class", "future");
     };
+
+    // giveTime09.attr("class", "past");
+
+    // giveTime09.attr("class", "future");
+    // giveTime10.attr("class", "future");
+    // giveTime11.attr("class", "future");
+    // giveTime12.attr("class", "future");
+    // giveTime13.attr("class", "future");
+    // giveTime14.attr("class", "future");
+    // giveTime15.attr("class", "future");
+    // giveTime16.attr("class", "future");
+    // giveTime17.attr("class", "future");
+
 		
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
@@ -105,6 +128,6 @@ $(function () {
 
 	// TODO: Add code to display the current date in the header of the page.
     
-	$("#currentDay").text(todaysDate.format("[Today is] D MMM, YYYY"));
+	$("#currentDay").text(todaysDate);
 
 });
