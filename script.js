@@ -7,6 +7,7 @@ $(function () {
     var save = $(".saveBtn");
 	var todaysDate = dayjs().format("[Today is] D MMM, YYYY");
 	var theTime = dayjs().format("H");
+    var secondsLeft = 1;
 
     // var assignCurrentTime = $(".time-block");
 
@@ -60,6 +61,24 @@ $(function () {
 	//
 
 	save.on("click", function () {
+
+        // var display = $("<h3>");
+        // display.append.$(".container-lg px-5");
+        // display.content("content");
+
+        var disp = document.createElement("p");
+        var appendMsg = document.body.children[0].children[2];
+        disp.textContent = "Item saved to local storage";
+        disp.setAttribute("style", "color:green; margin:15px 0px -45px 0px;");
+        appendMsg.appendChild(disp);
+
+        timer = setInterval(function() {
+            secondsLeft--;
+            if (secondsLeft === 0) {
+                disp.setAttribute("style", "display:none;");
+                secondsLeft = 1;
+            }
+        }, 1000);
 
         console.log(this);
 
