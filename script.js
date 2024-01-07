@@ -7,7 +7,13 @@ $(function () {
     var save = $(".saveBtn");
 	var todaysDate = dayjs().format("[Today is] D MMM, YYYY");
 	var theTime = dayjs().format("H");
-    var assignCurrentTime = $(".time-block");
+
+    // var assignCurrentTime = $(".time-block");
+
+    // assignCurrentTime.each( function () {
+    //     console.log(this);
+    //     console.log($(this).children("textarea"))
+    // })
 
 	var textArea09 = $("#hour-09");
 	var textArea10 = $("#hour-10");
@@ -29,8 +35,11 @@ $(function () {
     var giveTime16 = $("#16");
     var giveTime17 = $("#17");
 
+    // Each item within the array, timeBlockHours is its own array,
+    // so it must be targeted correctly in the for loop.
+
     var timeBlockHours = [
-        giveTime09 = 9,
+        giveTime09,
         giveTime10,
         giveTime11,
         giveTime12,
@@ -40,33 +49,7 @@ $(function () {
         giveTime16,
         giveTime17,
     ];
-
-    
-    // var pastPresentFuture = {
-    //     num9: 9,
-    //     num10: 10,
-    //     num11: 11,
-    //     num12: 12,
-    //     num13: 13,
-    //     num14: 14,
-    //     num15: 15,
-    //     num16: 16,
-    //     num17: 17,
-    // };
-
-    // console.log(pastPresentFuture);
-
-    // var timeSections = {
-    //     giveTime09: $("#9"),
-    //     giveTime10: $("#10"),
-    //     giveTime11: $("#11"),
-    //     giveTime12: $("#12"),
-    //     giveTime13: $("#13"),
-    //     giveTime14: $("#14"),
-    //     giveTime15: $("#15"),
-    //     giveTime16: $("#16"),
-    //     giveTime17: $("#17"),
-    // };
+    console.log(timeBlockHours);
 
 	// TODO: Add a listener for click events on the save button. This code should
 	// use the id in the containing time-block as a key to save the user input in
@@ -78,15 +61,17 @@ $(function () {
 
 	save.on("click", function () {
 
-        userInput09 = textArea09.val();
-        userInput10 = textArea10.val();
-        userInput11 = textArea11.val();
-        userInput12 = textArea12.val();
-        userInput13 = textArea13.val();
-        userInput14 = textArea14.val();
-        userInput15 = textArea15.val();
-        userInput16 = textArea16.val();
-        userInput17 = textArea17.val();
+        console.log(this);
+
+        var userInput09 = textArea09.val();
+        var userInput10 = textArea10.val();
+        var userInput11 = textArea11.val();
+        var userInput12 = textArea12.val();
+        var userInput13 = textArea13.val();
+        var userInput14 = textArea14.val();
+        var userInput15 = textArea15.val();
+        var userInput16 = textArea16.val();
+        var userInput17 = textArea17.val();
 
         localStorage.setItem("9am", userInput09);
         localStorage.setItem("10am", userInput10);
@@ -106,32 +91,23 @@ $(function () {
 	// past, present, and future classes? How can Day.js be used to get the
 	// current hour in 24-hour time?
 
-    if (theTime < 9) {
-        assignCurrentTime.attr("class", "future");
-    };
+    // timeBlockHours.each(element => {
+    //     console.log(element);
+    // });
 
     for (var i = 0; i < timeBlockHours.length; i++) {
-        // const element = timeBlockHours[i];
-        if (timeBlockHours[i] > theTime) {
-            assignCurrentTime.attr("class", "past");
+        console.log(timeBlockHours[i][0].getAttribute("id"));
+        var hourTime = parseInt(timeBlockHours[i][0].getAttribute("id"));
+        if (hourTime < theTime) {
+            timeBlockHours[i][0].setAttribute("class", "past row time-block");
         };
-        if (timeBlockHours[i] == theTime) {
-            assignCurrentTime.attr("class", "present");
+        if (hourTime == theTime) {
+            timeBlockHours[i][0].setAttribute("class", "present row time-block");
         };
-        if (timeBlockHours[i] < theTime) {
-            assignCurrentTime.attr("class", "future");
+        if (hourTime > theTime) {
+            timeBlockHours[i][0].setAttribute("class", "future row time-block");
         };
     };
-
-    // giveTime09.attr("class", "future");
-    // giveTime10.attr("class", "future");
-    // giveTime11.attr("class", "future");
-    // giveTime12.attr("class", "future");
-    // giveTime13.attr("class", "future");
-    // giveTime14.attr("class", "future");
-    // giveTime15.attr("class", "future");
-    // giveTime16.attr("class", "future");
-    // giveTime17.attr("class", "future");
 		
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
@@ -140,6 +116,7 @@ $(function () {
 	//
 
     function init() {
+
         var storedItem9 = (localStorage.getItem("9am"));
         var storedItem10 = (localStorage.getItem("10am"));
         var storedItem11 = (localStorage.getItem("11am"));
@@ -149,6 +126,7 @@ $(function () {
         var storedItem15 = (localStorage.getItem("3pm"));
         var storedItem16 = (localStorage.getItem("4pm"));
         var storedItem17 = (localStorage.getItem("5pm"));
+
         textArea09.append(storedItem9);
         textArea10.append(storedItem10);
         textArea11.append(storedItem11);
@@ -158,6 +136,7 @@ $(function () {
         textArea15.append(storedItem15);
         textArea16.append(storedItem16);
         textArea17.append(storedItem17);
+
     };
 
     init();
