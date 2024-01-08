@@ -8,13 +8,21 @@ $(function () {
 	var todaysDate = dayjs().format("[Today is] D MMM, YYYY");
 	var theTime = dayjs().format("H");
     var secondsLeft = 1;
-    // var assignCurrentTime = $(".time-block");
 
-    //
+    // var textAreaAll = $("section").children().children("textarea");
+    // console.log(textAreaAll);
+
+    // textAreaAll.each(function () {
+    //     console.log($(this));
+    //     console.log(this);
+    // });
+
+    // var assignCurrentTime = $(".time-block");
+        
     // assignCurrentTime.each( function () {
     //     console.log(this);
-    //     // console.log($(this).children("textarea"))
-    // })
+    //     console.log($(this).children("textarea"));
+    // });
 
     // Targets the textarea element in the html with the corresponding id's.
 	var textArea09 = $("#hour-09");
@@ -78,10 +86,8 @@ $(function () {
             if (secondsLeft === 0) {
                 disp.setAttribute("style", "display:none;");
                 secondsLeft = 1;
-            }
+            };
         }, 1000);
-
-        // console.log(this);
 
         // Get the value of each textarea element and assign it to its own variable.
         var userInput09 = textArea09.val();
