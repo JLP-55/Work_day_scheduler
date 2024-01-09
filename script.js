@@ -8,17 +8,6 @@ $(function () {
     var textAreaAll = $("section").children().children("textarea");
     // console.log(textAreaAll);
 
-    // Targets the textarea element in the html with the corresponding id's.
-	var textArea09 = $("#hour-09");
-	var textArea10 = $("#hour-10");
-	var textArea11 = $("#hour-11");
-	var textArea12 = $("#hour-12");
-	var textArea13 = $("#hour-13");
-	var textArea14 = $("#hour-14");
-	var textArea15 = $("#hour-15");
-	var textArea16 = $("#hour-16");
-	var textArea17 = $("#hour-17");
-
     // Targets each div element in the html with the corresponding id's.
     var giveTime09 = $("#9");
     var giveTime10 = $("#10");
@@ -65,33 +54,11 @@ $(function () {
             };
         }, 1000);
 
-        for (let i = 0; i < textAreaAll.length; i++) {
-            // const element = array[i];
-            console.log(textAreaAll.eq(i).val());
-            localStorage.setItem(textAreaAll.eq(i).attr('id'), textAreaAll.eq(i).val());
+        // A loop to save all the values from the textarea elements to local storage with unique id's.
+        for (var i = 0; i < textAreaAll.length; i++) {
+            // console.log(textAreaAll.eq(i).val());
+            localStorage.setItem(textAreaAll.eq(i).attr("id"), textAreaAll.eq(i).val());
         };
-
-        // // Get the value of each textarea element and assign it to its own variable.
-        // var userInput09 = textArea09.val();
-        // var userInput10 = textArea10.val();
-        // var userInput11 = textArea11.val();
-        // var userInput12 = textArea12.val();
-        // var userInput13 = textArea13.val();
-        // var userInput14 = textArea14.val();
-        // var userInput15 = textArea15.val();
-        // var userInput16 = textArea16.val();
-        // var userInput17 = textArea17.val();
-
-        // // Use a key value pair ("key", value); to set items in local storage.
-        // localStorage.setItem("9am", userInput09);
-        // localStorage.setItem("10am", userInput10);
-        // localStorage.setItem("11am", userInput11);
-        // localStorage.setItem("12pm", userInput12);
-        // localStorage.setItem("1pm", userInput13);
-        // localStorage.setItem("2pm", userInput14);
-        // localStorage.setItem("3pm", userInput15);
-        // localStorage.setItem("4pm", userInput16);
-        // localStorage.setItem("5pm", userInput17);
 
 	});
 
@@ -122,30 +89,10 @@ $(function () {
     function init() {
 
         for (var i = 0; i < textAreaAll.length; i++) {
-            var itemDisp = localStorage.getItem(textAreaAll.eq(i).attr('id'));
+            var itemDisp = localStorage.getItem(textAreaAll.eq(i).attr("id"));
             // $("textarea").eq(i).append(itemDisp);
             textAreaAll.eq(i).append(itemDisp);
         };
-
-        // var storedItem9 = (localStorage.getItem("9am"));
-        // var storedItem10 = (localStorage.getItem("10am"));
-        // var storedItem11 = (localStorage.getItem("11am"));
-        // var storedItem12 = (localStorage.getItem("12pm"));
-        // var storedItem13 = (localStorage.getItem("1pm"));
-        // var storedItem14 = (localStorage.getItem("2pm"));
-        // var storedItem15 = (localStorage.getItem("3pm"));
-        // var storedItem16 = (localStorage.getItem("4pm"));
-        // var storedItem17 = (localStorage.getItem("5pm"));
-
-        // textArea09.append(storedItem9);
-        // textArea10.append(storedItem10);
-        // textArea11.append(storedItem11);
-        // textArea12.append(storedItem12);
-        // textArea13.append(storedItem13);
-        // textArea14.append(storedItem14);
-        // textArea15.append(storedItem15);
-        // textArea16.append(storedItem16);
-        // textArea17.append(storedItem17);
 
     };
 
