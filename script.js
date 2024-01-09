@@ -2,9 +2,15 @@ $(function () {
 
     var save = $(".saveBtn");
 	var todaysDate = dayjs().format("[Today is] D MMM, YYYY");
-	var theTime = dayjs().format("H");
+	// var theTime = dayjs().format("H");
+    var theTime = 8;
     var secondsLeft = 1;
 
+    // This variable will be used to allocate CSS selectors to the html elements.
+    var divAll = $("section").children("div");
+    // console.log(divAll);
+
+    // This variable will be used to put items in local storage.
     var textAreaAll = $("section").children().children("textarea");
     // console.log(textAreaAll);
 
@@ -69,20 +75,37 @@ $(function () {
     // parseInt parses a string, in this case the id attribute that has been selected,
     // and then returns a number. So if id="9" then it will return a value of 9.
     // (this is so you can compare hourTime to "id").
-    for (var i = 0; i < timeBlock.length; i++) {
-        var hourTime = parseInt(timeBlock[i][0].getAttribute("id"));
+    // for (var i = 0; i < timeBlock.length; i++) {
+    //     var hourTime = parseInt(timeBlock[i][0].getAttribute("id"));
+    //     if (hourTime < theTime) {
+    //         timeBlock[i][0].setAttribute("class", "past row time-block");
+    //     };
+    //     if (hourTime == theTime) {
+    //         timeBlock[i][0].setAttribute("class", "present row time-block");
+    //     };
+    //     if (hourTime > theTime) {
+    //         timeBlock[i][0].setAttribute("class", "future row time-block");
+    //     };
+
+    //     // console.log(timeBlock[i][0].getAttribute("id"));
+    //     // console.log(hourTime);
+    // };
+
+    for (var i = 0; i < divAll.length; i++) {
+        var hourTime = parseInt(divAll.eq(i).attr("id"));
         if (hourTime < theTime) {
-            timeBlock[i][0].setAttribute("class", "past row time-block");
+            divAll.eq(i).attr("class", "past row time-block");
+            // timeBlock[i][0].setAttribute("class", "past row time-block");
         };
         if (hourTime == theTime) {
-            timeBlock[i][0].setAttribute("class", "present row time-block");
+            divAll.eq(i).attr("class", "present row time-block");
+            // timeBlock[i][0].setAttribute("class", "present row time-block");
         };
         if (hourTime > theTime) {
-            timeBlock[i][0].setAttribute("class", "future row time-block");
+            divAll.eq(i).attr("class", "future row time-block");
+            // timeBlock[i][0].setAttribute("class", "future row time-block");
         };
-
-        // console.log(timeBlock[i][0].getAttribute("id"));
-        // console.log(hourTime);
+        console.log(hourTime);
     };
 
     // This function will render saved items from local storage to the page.
