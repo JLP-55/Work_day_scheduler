@@ -10,6 +10,8 @@ All that was required was to add some functionality to already existing html and
 
 Add any to-do items into the text area of the page. To save said items, click on the blue save icon to the right of the page.
 
+link to the deployed application: https://jlp-55.github.io/Work_day_scheduler/
+
 !["Preview image"](./assets/Capture.PNG)
 
 ## Licence
