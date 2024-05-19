@@ -7,7 +7,9 @@ All that was required was to add some functionality to already existing html and
 
 ## Usage
 
-Add any to-do items into the text area of the page. To save said items, click on the blue save icon to the right of the page. Upon returning to the application, a user will see their to do items remain saved while the hours will keep updating, as denoted by the colours in each of the time-slots, until 5:00 pm.<br>
+Add any to-do items into the text area of the page.<br>
+To save said items, click on the blue save icon to the right of the page.<br>
+Upon returning to the application, a user will see their to do items remain saved while the hours will keep updating, as denoted by the colours in each of the time-slots, until 5:00 pm.<br>
 
 ## Link
 
@@ -17,7 +19,7 @@ Add any to-do items into the text area of the page. To save said items, click on
 
 A quick preview of the page when loaded.
 
-!["Preview image"](./assets/Capture.PNG)
+<img src="./assets/images/Capture.PNG" width="850px" height="100%">
 
 ## Licence
 
