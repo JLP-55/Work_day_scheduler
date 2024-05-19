@@ -2,15 +2,20 @@
 
 ## Description
 
-In this weeks challenge for the coding bootcamp, the requirement was to create a daily planner that could aid in a students or employees scheduling.
-
-All that was required was to add some functionality to already existing html and css code so that the page would update dynamincally, based on the time of day, as well a being able to store any imputs from the user.
+In this weeks challenge for the coding bootcamp, the requirement was to create a daily planner that could aid in a students or employees scheduling.<br> 
+All that was required was to add some functionality to already existing html and css code so that the page would update dynamincally, based on the time of day, as well a being able to store any inputs from the user in local storage.
 
 ## Usage
 
-Add any to-do items into the text area of the page. To save said items, click on the blue save icon to the right of the page.
+Add any to-do items into the text area of the page. To save said items, click on the blue save icon to the right of the page. Upon returning to the application, a user will see their to do items remain saved while the hours will keep updating, as denoted by the colours in each of the time-slots, until 5:00 pm.<br>
 
-link to the deployed application: https://jlp-55.github.io/Work_day_scheduler/
+## Link
+
+[Link](https://jlp-55.github.io/Work_day_scheduler/) to the deployed application
+
+## Screenshots
+
+A quick preview of the page when loaded.
 
 !["Preview image"](./assets/Capture.PNG)
 
